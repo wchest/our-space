@@ -49,28 +49,35 @@
         }
         .nav-logo {
             font-family: 'Playfair Display', serif; font-size: 1.45rem;
-            color: var(--deep-plum); text-decoration: none;
+            color: var(--adobe-white); text-decoration: none; transition: color 0.4s ease;
         }
+        nav.scrolled .nav-logo { color: var(--deep-plum); }
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
         .nav-links a {
-            text-decoration: none; color: var(--text-mid); font-size: 0.88rem;
+            text-decoration: none; color: rgba(235,215,194,0.85); font-size: 0.88rem;
             font-weight: 500; letter-spacing: 0.03em; transition: color 0.3s;
         }
-        .nav-links a:hover { color: var(--bronze-tone); }
+        .nav-links a:hover { color: var(--ivory); }
+        nav.scrolled .nav-links a { color: var(--text-mid); }
+        nav.scrolled .nav-links a:hover { color: var(--bronze-tone); }
         .nav-cta {
-            background: var(--deep-plum) !important; color: var(--ivory) !important;
+            background: rgba(235,215,194,0.15) !important; color: var(--ivory) !important;
+            border: 1.5px solid rgba(235,215,194,0.35) !important;
             padding: 0.6rem 1.4rem; border-radius: 100px;
-            transition: background 0.3s, transform 0.2s !important;
+            transition: background 0.3s, border-color 0.3s, transform 0.2s !important;
         }
-        .nav-cta:hover { background: var(--plum-light) !important; transform: translateY(-1px); }
+        .nav-cta:hover { background: rgba(235,215,194,0.25) !important; border-color: rgba(235,215,194,0.6) !important; transform: translateY(-1px); }
+        nav.scrolled .nav-cta { background: var(--deep-plum) !important; color: var(--ivory) !important; border-color: var(--deep-plum) !important; }
+        nav.scrolled .nav-cta:hover { background: var(--plum-light) !important; border-color: var(--plum-light) !important; }
         .mobile-toggle {
             display: none; background: none; border: none; cursor: pointer;
             width: 28px; height: 20px; position: relative;
         }
         .mobile-toggle span {
-            display: block; width: 100%; height: 2px; background: var(--deep-plum);
+            display: block; width: 100%; height: 2px; background: var(--adobe-white);
             position: absolute; left: 0; transition: all 0.3s;
         }
+        nav.scrolled .mobile-toggle span { background: var(--deep-plum); }
         .mobile-toggle span:nth-child(1) { top: 0; }
         .mobile-toggle span:nth-child(2) { top: 9px; }
         .mobile-toggle span:nth-child(3) { top: 18px; }
@@ -334,8 +341,6 @@
         .footer-copy { width: 100%; text-align: center; padding-top: 2rem; margin-top: 1rem; border-top: 1px solid rgba(235,215,194,0.06); font-size: 0.78rem; color: rgba(235,215,194,0.25); }
 
         /* BANNER */
-        .founding-banner { background: var(--bronze-tone); color: var(--ivory); text-align: center; padding: 0.75rem 2rem; font-size: 0.83rem; font-weight: 500; }
-        .founding-banner strong { font-weight: 700; }
 
         /* ANIMATIONS */
         @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
@@ -358,6 +363,9 @@
                 background: rgba(255,248,240,0.97); backdrop-filter: blur(14px);
                 padding: 1.5rem 2rem 2rem; gap: 1.2rem; box-shadow: 0 12px 40px rgba(76,17,48,0.08);
             }
+            .nav-links.open a { color: var(--text-mid); }
+            .nav-links.open a:hover { color: var(--bronze-tone); }
+            .nav-links.open .nav-cta { background: var(--deep-plum) !important; color: var(--ivory) !important; border-color: var(--deep-plum) !important; }
             .mobile-toggle { display: block; }
             section { padding: 4.5rem 1.5rem; }
             .hero-content { padding: 7rem 1.5rem 3rem; }
@@ -371,10 +379,6 @@
     </style>
 </head>
 <body>
-
-    <div class="founding-banner">
-        <strong>Only 1 Founding Member spot left</strong> — Join our community before the March 2026 launch
-    </div>
 
     <nav>
         <a href="#" class="nav-logo">Our Space</a>
